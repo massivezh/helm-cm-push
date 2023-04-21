@@ -20,6 +20,7 @@ RUN case `uname -m` in \
     wget ${BASE_URL}/helm-v${VERSION}-linux-${ARCH}.tar.gz -O - | tar -xz && \
     mv linux-${ARCH}/helm /usr/bin/helm && \
     chmod +x /usr/bin/helm && \
+    helm plugin install https://github.com/chartmuseum/helm-push && \
     rm -rf linux-${ARCH}
 
 RUN chmod +x /usr/bin/helm
